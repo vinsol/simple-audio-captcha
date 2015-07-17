@@ -5,19 +5,19 @@ module SimpleCaptcha
   module AudioHelpers
     include ESpeak
 
-    TMP_FILES_PATH = "/tmp/simple_captcha/audios/"
-    FileUtils.mkdir_p(TMP_FILES_PATH) unless File.directory?(TMP_FILES_PATH)
-
     def generate_simple_captcha_audio(simple_captcha_key)
       captcha_value = Utils::simple_captcha_value(simple_captcha_key)
-      filenames = []
-      captcha_value.each_char do |char|
-        file_name = TMP_FILES_PATH + "simple-captcha-audio-#{ char }-#{ simple_captcha_key }.mp3"
-        Speech.new(char).save(file_name)
-        filenames << file_name
-      end
-      Sox::Combiner.new(filenames, combine: :concatenate).write(TMP_FILES_PATH + "#{ captcha_value }.mp3")
-      File.read(TMP_FILES_PATH + "#{ captcha_value }.mp3")
+      make_audio_from_captcha(captcha_value)
     end
+
+    def make_audio_from_captcha(captcha_str)
+      audio = make_audio_from_char(captcha_str.chars.first)
+      captcha_str.chars.drop(1).inject(audio) { |audio_acc, char| audio_acc << make_audio_from_char(char) }
+    end
+
+    def make_audio_from_char(char)
+      Speech.new(char).bytes.force_encoding('ASCII-8BIT')
+    end
+
   end
 end
