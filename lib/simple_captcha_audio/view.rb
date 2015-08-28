@@ -15,7 +15,7 @@ module SimpleCaptcha
 
     private
       def simple_captcha_audio(simple_captcha_key, options = {})
-        url = simple_captcha_audio_url simple_captcha_key, options: options
+        url = simple_captcha_audio_url simple_captcha_key, options
         id  = simple_captcha_audio_id(options)
         tag('audio', :src => url, :id => id, controls: true)
       end
@@ -26,6 +26,7 @@ module SimpleCaptcha
 
         query = defaults.to_query
         path = "/simple_captcha?code=#{simple_captcha_key}&#{query}&audio=true"
+
         build_url(options, path)
       end
 

@@ -1,5 +1,4 @@
 require 'espeak'
-require 'sox'
 
 module SimpleCaptcha
   module AudioHelpers
@@ -12,11 +11,14 @@ module SimpleCaptcha
 
     def make_audio_from_captcha(captcha_str)
       audio = make_audio_from_char(captcha_str.chars.first)
-      captcha_str.chars.drop(1).inject(audio) { |audio_acc, char| audio_acc << make_audio_from_char(char) }
+      captcha_str.chars.drop(1).inject(audio) { |audio_accumalator, char| audio_accumalator << make_audio_from_char(char) }
     end
 
     def make_audio_from_char(char)
-      Speech.new(char).bytes.force_encoding('ASCII-8BIT')
+      Speech.new(char,
+                 voice: SimpleCaptcha.voice,
+                 pitch: SimpleCaptcha.pitch,
+                 speed: SimpleCaptcha.pitch).bytes.force_encoding('ASCII-8BIT')
     end
 
   end

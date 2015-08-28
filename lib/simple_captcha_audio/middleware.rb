@@ -20,7 +20,7 @@ module SimpleCaptcha
     end
 
     protected
-      def make_audio(env)
+      def make_audio(env, headers = {}, status = 404)
         request = Rack::Request.new(env)
         code = request.params["code"]
         body = []
