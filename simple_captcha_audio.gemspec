@@ -6,8 +6,8 @@ require 'simple_captcha_audio/version'
 Gem::Specification.new do |spec|
   spec.name          = "simple_captcha_audio"
   spec.version       = SimpleCaptchaAudio::VERSION
-  spec.authors       = ["Aditya Kapoor"]
-  spec.email         = ["adityakapoor.mait@gmail.com"]
+  spec.authors       = ["Aditya Kapoor, Nimish Mehta"]
+  spec.email         = ["adityakapoor.mait@gmail.com", "mehta.nimish42@gmail.com"]
   spec.summary       = "Simple Audio Extension to Simple Captcha"
   spec.description   = ""
   spec.homepage      = "https://github.com/aditya-kapoor/simple-captcha-audio"

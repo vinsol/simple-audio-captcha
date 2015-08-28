@@ -20,31 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-The extension adds another parameter to the image generation URL to facilitate the generation of audio file for the same captcha.
+Use ```rails g simple_captcha_audio [templatetype]``` to generate the default template with audio support and overwrite the existing simple captcha template.
 
-Suppose if the URL for the generation for image is
-`http://localhost:3000/simple_captcha?code=3b803d95a91435997917b24046041cc31427aea3&time=1433768850` then simply append `audio=true` to the above URL to facilitate the generation of the audio file.
+Simple Captcha Audio Utilises Espeak to produce audio. The Espeak configuration for voice, pitch and speed can be added to simple captcha:
 
-So visiting
-`http://localhost:3000/simple_captcha?code=3b803d95a91435997917b24046041cc31427aea3&time=1433768850&audio=true` would generate the audio file.
+```
+SimpleCaptcha.setup do |simple_captcha|
+  simple_captcha.voice = 'en'
+  simple_captcha.speed = 100
+  simple_captcha.pitch = 100
+end
+```
+
+See espeak documentation for further details for these parameters.
 
 ## Requirements
 * Ruby >= 1.9.3
 * Rails >= 3.2
-* You need to install `espeak`, `lame` and `sox` system libraries which would help you in the text to speech conversion and exporting the audio to the `mp3` format. `sox` is used for multiple audio files in a single consolidated mp3 file.
+* You need to install `espeak` and `lame` system libraries which would help you in the text to speech conversion and exporting the audio to the `mp3` format.
 
-You might need to install the above libraries on a Mac-System:
+You can install them on OSX from homebrew:
 
 ```
 brew install espeak lame
-brew install flac sox chromaprint
 ```
 
 On ubuntu system
 
 ```
 apt-get install espeak lame
-apt-get install libsox-fmt-all sox libchromaprint-dev
 ```
 
 ## Contributing
