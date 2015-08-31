@@ -45,11 +45,7 @@ You can install them on OSX from homebrew:
 brew install espeak lame
 ```
 
-On ubuntu system
-
-```
-apt-get install espeak lame
-```
+or on a linux based system from your package manager.
 
 ## Contributing
 
