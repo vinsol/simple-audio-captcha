@@ -28,9 +28,9 @@ module SimpleCaptcha
         if Utils::simple_captcha_value(code)
           #status, headers, body = @app.call(env)
           #status = 200
-          #body = generate_simple_captcha_audio(code)
+          #body = generate_simple_audio_captcha(code)
           #headers['Content-Type'] = 'audio/mpeg3'
-          send_data(generate_simple_captcha_audio(code), type: 'audio/mpeg3', disposition: 'inline', filename: 'simple_captcha_audio.mp3', stream: 'true', buffer_size: '4096')
+          send_data(generate_simple_audio_captcha(code), type: 'audio/mpeg3', disposition: 'inline', filename: 'simple_audio_captcha.mp3', stream: 'true', buffer_size: '4096')
         else
           [status, headers, body]
         end
@@ -50,7 +50,7 @@ module SimpleCaptcha
         captcha_hidden_field_id = simple_captch_hidden_field_id(id)
 
         audio_id = generate_audio_id(id)
-        audio_url = simple_captcha_audio_url(key, options)
+        audio_url = simple_audio_captcha_url(key, options)
 
         body = %Q{
                     $("##{id}").attr('src', '#{url}');

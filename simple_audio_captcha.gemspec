@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'simple_captcha_audio/version'
+require 'simple_audio_captcha/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "simple_captcha_audio"
-  spec.version       = SimpleCaptchaAudio::VERSION
+  spec.name          = "simple_audio_captcha"
+  spec.version       = SimpleAudioCaptcha::VERSION
   spec.authors       = ["Aditya Kapoor, Nimish Mehta"]
   spec.email         = ["adityakapoor.mait@gmail.com", "mehta.nimish42@gmail.com"]
   spec.summary       = "Simple Audio Extension to Simple Captcha"

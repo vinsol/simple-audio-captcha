@@ -4,7 +4,7 @@ module SimpleCaptcha
   module AudioHelpers
     include ESpeak
 
-    def generate_simple_captcha_audio(simple_captcha_key)
+    def generate_simple_audio_captcha(simple_captcha_key)
       captcha_value = Utils::simple_captcha_value(simple_captcha_key)
       make_audio_from_captcha(captcha_value)
     end

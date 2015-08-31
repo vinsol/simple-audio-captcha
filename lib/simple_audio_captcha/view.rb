@@ -9,18 +9,18 @@ module SimpleCaptcha
       key = super_options[:field_value]
 
       super_options.merge({
-        audio: simple_captcha_audio(key, options)
+        audio: simple_audio_captcha(key, options)
       })
     end
 
     private
-      def simple_captcha_audio(simple_captcha_key, options = {})
-        url = simple_captcha_audio_url simple_captcha_key, options
-        id  = simple_captcha_audio_id(options)
+      def simple_audio_captcha(simple_captcha_key, options = {})
+        url = simple_audio_captcha_url simple_captcha_key, options
+        id  = simple_audio_captcha_id(options)
         tag('audio', :src => url, :id => id, controls: true)
       end
 
-      def simple_captcha_audio_url(simple_captcha_key, options = {})
+      def simple_audio_captcha_url(simple_captcha_key, options = {})
         defaults = {}
         defaults[:time] = options[:time] || Time.now.to_i
 
@@ -30,7 +30,7 @@ module SimpleCaptcha
         build_url(options, path)
       end
 
-      def simple_captcha_audio_id(options={})
+      def simple_audio_captcha_id(options={})
         "#{ simple_captcha_id_prefix }-#{options[:field_value][0..10]}"
       end
 

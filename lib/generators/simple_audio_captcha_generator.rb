@@ -1,6 +1,6 @@
 require 'rails/generators'
 
-class SimpleCaptchaAudioGenerator < Rails::Generators::Base
+class SimpleAudioCaptchaGenerator < Rails::Generators::Base
   argument :template_format, :type => :string, :default => 'erb'
   include Rails::Generators::Migration
 

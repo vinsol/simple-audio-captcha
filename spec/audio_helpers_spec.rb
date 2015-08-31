@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'simple_captcha/utils'
-require 'simple_captcha_audio/audio_helpers'
+require 'simple_audio_captcha/audio_helpers'
 
 class TestAudioHelper
   include SimpleCaptcha::AudioHelpers
@@ -14,7 +14,7 @@ describe SimpleCaptcha::AudioHelpers do
   end
 
   context 'Instance Methods' do
-    context '#generate_simple_captcha_audio' do
+    context '#generate_simple_audio_captcha' do
       pending 'TODO: Write without too much mocks and stubs.'
     end
   end
