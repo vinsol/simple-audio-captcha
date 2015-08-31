@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["adityakapoor.mait@gmail.com", "mehta.nimish42@gmail.com"]
   spec.summary       = "Simple Audio Extension to Simple Captcha"
   spec.description   = ""
-  spec.homepage      = "https://github.com/aditya-kapoor/simple-captcha-audio"
+  spec.homepage      = "https://github.com/vinsol/simple-audio-captcha"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
