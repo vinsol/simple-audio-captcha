@@ -18,7 +18,7 @@ module SimpleCaptcha
       Speech.new(char,
                  voice: SimpleCaptcha.voice,
                  pitch: SimpleCaptcha.pitch,
-                 speed: SimpleCaptcha.pitch).bytes.force_encoding('ASCII-8BIT')
+                 speed: SimpleCaptcha.speed).bytes.force_encoding('ASCII-8BIT')
     end
 
   end
