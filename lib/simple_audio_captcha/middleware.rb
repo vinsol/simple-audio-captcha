@@ -62,6 +62,7 @@ module SimpleCaptcha
       end
 
       def generate_audio_id(id)
+        return '' if id.nil?
         id.gsub('simple_captcha', simple_captcha_id_prefix)
       end
   end
